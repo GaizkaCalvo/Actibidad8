@@ -1,0 +1,27 @@
+@URL = http://localhost:3000/api
+
+GET {{URL}}/autores
+
+###
+POST {{URL}}/autores
+Content-Type: application/json
+
+{
+    "nombre": "Gaizka",
+    "email": "gaizka@gmail.com",
+    "imagen": "http://example"
+}
+
+###
+GET {{URL}}/posts
+
+###
+POST {{URL}}/posts
+Content-Type: application/json
+
+{
+    "autores_idautores": "1",
+    "titulo": "Titulito",
+    "descripcion": "Una descripcion cualquiera",
+    "categoria": "Clasico"
+}
