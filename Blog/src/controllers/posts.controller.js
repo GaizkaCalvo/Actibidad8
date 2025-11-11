@@ -9,8 +9,23 @@ const getAll = async (req, res) =>
 
 const create = async (req, res) =>
 {
-   const result = await PostModel.insertAutores(req.body);
-    res.json(result);
+    const { insertId } = await PostModel.insertPosts(req.body);
+    
+    const newPost =  await PostModel.getPostById(insertId);
+
+    res.json(newPost);
 }
 
-module.exports = { getAll, create }
+const getById = async (req, res) =>
+{
+    const { postId } = req.params;
+    const post = await PostModel.getPostById(postId);
+
+    if(!post)
+    {
+        return res.status(404).json({ message: 'El post no existe' });
+    }
+    res.json(post);
+}
+
+module.exports = { getAll, create, getById }

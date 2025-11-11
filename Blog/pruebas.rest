@@ -3,12 +3,15 @@
 GET {{URL}}/autores
 
 ###
+GET {{URL}}/autores/30
+
+###
 POST {{URL}}/autores
 Content-Type: application/json
 
 {
     "nombre": "Gaizka",
-    "email": "gaizka@gmail.com",
+    "email": "gaizka3@gmail.com",
     "imagen": "http://example"
 }
 
@@ -16,12 +19,15 @@ Content-Type: application/json
 GET {{URL}}/posts
 
 ###
+GET {{URL}}/posts/1
+
+###
 POST {{URL}}/posts
 Content-Type: application/json
 
 {
     "autores_idautores": "1",
-    "titulo": "Titulito",
+    "titulo": "Titulito2",
     "descripcion": "Una descripcion cualquiera",
     "categoria": "Clasico"
 }
