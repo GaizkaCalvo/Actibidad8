@@ -3,7 +3,10 @@
 GET {{URL}}/autores
 
 ###
-GET {{URL}}/autores/30
+GET {{URL}}/autores/5
+
+###
+GET {{URL}}/autores/1/posts
 
 ###
 POST {{URL}}/autores
@@ -19,15 +22,15 @@ Content-Type: application/json
 GET {{URL}}/posts
 
 ###
-GET {{URL}}/posts/1
+GET {{URL}}/posts/sdafsd
 
 ###
 POST {{URL}}/posts
 Content-Type: application/json
 
 {
-    "autores_idautores": "1",
-    "titulo": "Titulito2",
+    "autores_idautores": "2",
+    "titulo": "Titulito300",
     "descripcion": "Una descripcion cualquiera",
     "categoria": "Clasico"
 }

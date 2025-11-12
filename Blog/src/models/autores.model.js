@@ -25,4 +25,14 @@ const getAutorById = async (autorId) =>
     return result[0];
 }
 
-module.exports = { selectAutores, insertAutores, getAutorById };
+const getAutorPostsById = async (autorId) =>
+{
+    const [result] = await db.query('SELECT *  FROM posts WHERE autores_idautores = ?', [autorId]);
+    if(result.length == 0)
+    {
+        return null;
+    }
+    return result;
+}
+
+module.exports = { selectAutores, insertAutores, getAutorById, getAutorPostsById };

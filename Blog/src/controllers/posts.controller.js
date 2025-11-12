@@ -18,14 +18,7 @@ const create = async (req, res) =>
 
 const getById = async (req, res) =>
 {
-    const { postId } = req.params;
-    const post = await PostModel.getPostById(postId);
-
-    if(!post)
-    {
-        return res.status(404).json({ message: 'El post no existe' });
-    }
-    res.json(post);
+    res.json(req.post);
 }
 
 module.exports = { getAll, create, getById }

@@ -17,14 +17,14 @@ const create = async (req, res) =>
 
 const getById = async (req, res) =>
 {
-    const { autorId } = req.params;
-    const autor = await AutorModel.getAutorById(autorId);
-
-    if(!autor)
-    {
-        return res.status(404).json({ message: 'El autor no existe' });
-    }
-    res.json(autor);
+    res.json(req.autor);
 }
 
-module.exports = { getAll, create, getById }
+const getAutorPostsById = async (req, res) =>
+{
+    const posts = await AutorModel.getAutorPostsById(req.autor.idautores);
+
+    res.json(posts);
+}
+
+module.exports = { getAll, create, getById, getAutorPostsById }
