@@ -1,4 +1,5 @@
-const PostModel = require('../models/posts.model');
+const PostModel  = require('../models/posts.model');
+const AutorModel = require('../models/autores.model');
 
 const checkPostId = async (req, res, next) =>
 {
@@ -21,6 +22,22 @@ const checkPostId = async (req, res, next) =>
 }
 
 //TODO: Poner middleware para checkear que el autor existe, y que no de error la base de datos
-//const checkPostAutorId = async 
+const checkPostAutorId = async (req,res,next) =>
+{
+    const { autores_idautores } = req.body;
 
-module.exports = { checkPostId };
+    if(!autores_idautores)
+    {
+        return res.status(404).json({ message: 'Parametro del id de autor ausente' });
+    }
+
+    const autor = await AutorModel.getAutorById(autores_idautores);
+    if(!autor)
+    {
+        return res.status(404).json({ message: 'El Id de autor que intenta crear el post no existe' });
+    }
+
+    next();
+}
+
+module.exports = { checkPostId, checkPostAutorId };

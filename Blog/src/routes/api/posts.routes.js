@@ -6,6 +6,6 @@ const PostMiddleware = require('../../middlewares/posts.middleware');
 router.get('/', PostController.getAll);
 router.get('/:postId', PostMiddleware.checkPostId, PostController.getById);
 
-router.post('/', PostController.create);
+router.post('/',PostMiddleware.checkPostAutorId, PostController.create);
 
 module.exports = router;
